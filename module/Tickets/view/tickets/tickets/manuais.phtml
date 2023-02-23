@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="jumbotron">
+    <h2>Não perca a oportunidade de aprimorar suas habilidades <span class="title-green">com nossos vídeos de Manual</span></h2>
+
+    <h4>
+       <span class="title-green">Assista aos vídeos agora e alcance resultados ainda mais impressionantes com sua equipe.</span>
+    </h4>
+
+    <p><a class="btn btn-primary-new btn-lg" href="<?=$this->url('tickets', ['action' => 'manuais'])?>">Ver curso &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div class="c-video">
+                    <video class="video" src="https://ia802500.us.archive.org/35/items/three-legged-legs/3000kbs_starbucks.mp4"></video>
+                    <div class="controls">
+                        <div class="red-bar">
+                            <div class="red"></div>
+                        </div>
+                        <div class="buttons">
+                            <button id="play-pause"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div class="c-video">
+                    <video class="video" src="https://ia802500.us.archive.org/35/items/three-legged-legs/3000kbs_starbucks.mp4"></video>
+                    <div class="controls">
+                        <div class="red-bar">
+                            <div class="red"></div>
+                        </div>
+                        <div class="buttons">
+                            <button id="play-pause"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.video {
+    width: 100%;
+}
+
+.c-video {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+    border-radius: 2ch;
+}
+
+.c-video:hover .controls {
+    transform: translateY(0);
+}
+
+.controls {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(100%) translateY(-5px);
+    transition: all 0.3s;
+}
+
+.buttons {
+    padding: 10px;
+}
+
+.buttons button {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.buttons button:before {
+    content: '\f144';
+    font-family: 'Font Awesome 6 Free';
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    font-size: 28px;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+}
+
+.buttons button.play:before {
+    content: '\f144';
+}
+
+.buttons button.pause:before {
+    content: '\f28b';
+}
+
+.buttons button.mute:before {
+    content: '\f144';
+}
+
+.buttons button.unmute:before {
+    content: '\f28b';
+}
+
+.red-bar {
+    height: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #F9F9F9;
+}
+
+.red {
+    height: 5px;
+    width: 100px;
+    background-color: red;
+}
+</style>
+<script type="text/javascript">
+var video = document.querySelector(".video");
+var red = document.querySelector(".red");
+var btn = document.getElementById("play-pause");
+
+function togglePlayPause() {
+    if (video.paused) {
+        btn.className = "pause";
+        video.play();
+    }
+    else {
+        btn.className = "play";
+        video.pause();
+    }
+}
+
+btn.onclick = function() {
+    togglePlayPause();
+};
+
+video.addEventListener("timeupdate", function() {
+    var juicePos = video.currentTime / video.duration;
+    red.style.width = juicePos * 100 + "%";
+    if (video.ended) {
+        btn.className = "play";
+    }
+});
+</script>

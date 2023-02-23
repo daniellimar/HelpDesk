@@ -1,0 +1,58 @@
+<?php
+$title = "Editando Ticket";
+$this->headTitle($title);
+?>
+<h1>
+    <?=$this->escapeHtml($title)?>
+</h1>
+<?php
+    $form->setAttribute('action',$this->url('tickets',['action'=>'editar','id'=>$id]));
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+
+    $id = $this->form->get('id');
+    $name = $this->form->get('name');
+    $description = $this->form->get('description');
+    $priority = $this->form->get('priority');
+    $sector = $this->form->get('sector');
+
+    $name->setAttribute('class','form-control');
+    $description->setAttribute('class','form-control');
+    $priority->setAttribute('class','form-control');
+    $sector->setAttribute('class','form-control');
+
+    $submit = $this->form->get('submit');
+    $submit->setAttribute('class','btn btn-primary-new');
+?>
+<?=$this->formElement($id)?>
+<div class="form-group">
+    <div class="col-md-6 mt-5 mb-5">
+        <?=$this->formLabel($name)?>
+        <?=$this->formElement($name)?>
+        <?=$this->formElementErrors()->render($name, ['class' => 'help-block'])?>
+    </div>
+    <div class="col-md-6 mt-5 mb-5">
+        <?=$this->formLabel($description)?>
+        <?=$this->formElement($description)?>
+        <?=$this->formElementErrors()->render($description, ['class' => 'help-block'])?>
+    </div>
+    <div class="col-md-6 mb-5 form-check">
+        <?=$this->formLabel($priority)?>
+        <?=$this->formElement($priority)?>
+        <?=$this->formElementErrors()->render($priority, ['class' => 'help-block'])?>
+    </div>
+    <div class="col-md-6 mb-5 form-check">
+        <?=$this->formLabel($sector)?>
+        <?=$this->formElement($sector)?>
+        <?=$this->formElementErrors()->render($sector, ['class' => 'help-block'])?>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-6 p-3">
+        <a href="<?=$this->url('tickets', ['action' => 'index'])?>" class="btn btn-primary-new">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </a>
+        <?=$this->formElement($submit)?>
+    </div>
+</div>
