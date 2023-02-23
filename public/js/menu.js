@@ -29,3 +29,7 @@ function initMenu() {
 $(document).ready(function() {
    initMenu();
 });
+// TOOTIP TABLE
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});

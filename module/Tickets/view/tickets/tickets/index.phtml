@@ -1,4 +1,4 @@
-<h1 class="mb-4">Gerenciamento</h1><hr>
+<h1 class="mb-5">Gerenciamento</h1><hr>
 <table class="table table-stripped table-hover">
 	<tr class="text-center">
 		<th>ID</th>
@@ -7,6 +7,7 @@
 		<th>Prioridade</th>
 		<th>Data</th>
 		<th>Previsão</th>
+		<th><a href="#" data-toggle="tooltip" title="SLA: Service Level Agreement | Acordo de nível de serviço">SLA</a></th>
 		<th></th>
 	</tr>
 	<?php
@@ -17,7 +18,8 @@
 				echo '<td>'.$pes->getSector().'</td>';
 				echo '<td>'.$pes->getPriority().'</td>';
 				echo '<td>'.format_data($pes->getCreated_at()).'</td>';
-				echo '<td>-7 dias</td>';
+				echo '<td>7 dias</td>';
+				echo '<td></td>';
 				echo '<td>';
 					?>
 					<a href="<?=$this->url('tickets', ['action'=>'visualizar', 'id' => $pes->getId()])?>" class="btn btn-primary text-white">

@@ -17,8 +17,8 @@
 	$myCountry = $this->form->get('myCountry');
 
 	$name->setAttribute('id', 'myInput');
-	$name->setAttribute('class', 'form-control');
 	$name->setAttribute('autofocus', 'autofocus');
+	$name->setAttribute('class', 'form-control');
 	$description->setAttribute('class', 'form-control');
 	$priority->setAttribute('class', 'form-control');
 	$sector->setAttribute('class', 'form-control');
@@ -30,6 +30,7 @@
 	$submit = $this->form->get('submit');
 	$submit->setAttribute('class', 'btn btn-primary-new text-white');
 ?>
+
 <?=$this->formElement($id)?>
 <div class="form-group">
 	<div class="col-md-6 mt-5 mb-5">
@@ -38,6 +39,9 @@
 			<?=$this->formElement($name)?>
 			<?=$this->formElementErrors()->render($name, ['class' => 'help-block'])?>
 		</div>
+		<div class="valid-feedback">
+	      Looks good!
+	    </div>
 	</div>
 	<div class="col-md-6 mt-5 mb-5">
 		<?=$this->formLabel($description)?>
