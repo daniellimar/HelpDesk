@@ -1,11 +1,12 @@
 <h1 class="mb-4">Gerenciamento</h1>
 <table class="table table-stripped table-hover">
-	<tr>
+	<tr class="text-center">
 		<th>ID</th>
-		<th>Nome</th>
+		<th>Assunto</th>
 		<th>Setor</th>
 		<th>Prioridade</th>
 		<th>Data</th>
+		<th>Previsão</th>
 		<th></th>
 	</tr>
 	<?php
@@ -16,16 +17,20 @@
 				echo '<td>'.$pes->getSector().'</td>';
 				echo '<td>'.$pes->getPriority().'</td>';
 				echo '<td>'.format_data($pes->getCreated_at()).'</td>';
+				echo '<td>-7 dias</td>';
 				echo '<td>';
-				?>
-				<a href="<?=$this->url('tickets', ['action'=>'editar', 'id' => $pes->getId()])?>" class="btn btn-primary-new">
-					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				</a>
-				<a href="<?=$this->url('tickets', ['action'=>'remover', 'id' => $pes->getId()])?>" class="btn btn-danger">
-					<i class="fa fa-trash-o" aria-hidden="true"></i>
-				</a>
-				<?php
-				echo '</a></td>';
+					?>
+					<a href="<?=$this->url('tickets', ['action'=>'visualizar', 'id' => $pes->getId()])?>" class="btn btn-primary text-white">
+						<i class="fa fa-eye" aria-hidden="true"></i>
+					</a>
+					<a href="<?=$this->url('tickets', ['action'=>'editar', 'id' => $pes->getId()])?>" class="btn btn-primary-new text-white">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</a>
+					<a href="<?=$this->url('tickets', ['action'=>'remover', 'id' => $pes->getId()])?>" class="btn btn-danger text-white">
+						<i class="fa fa-trash-o" aria-hidden="true"></i>
+					</a>
+					<?php
+				echo '</td>';
 			echo '</tr>';
 		}
 	?>

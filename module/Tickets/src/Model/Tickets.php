@@ -15,6 +15,7 @@ class Tickets implements \Zend\Stdlib\ArraySerializableInterface {
         $this->priority = !empty($data['priority']) ? $data['priority'] : null;
         $this->sector = !empty($data['sector']) ? $data['sector'] : null;
         $this->created_at = !empty($data['created_at']) ? $data['created_at'] : null;
+        $this->myCountry = !empty($data['myCountry']) ? $data['myCountry'] : null;
 	}
 
  	public function getId(){

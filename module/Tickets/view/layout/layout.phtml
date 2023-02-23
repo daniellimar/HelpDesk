@@ -16,6 +16,7 @@
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/menu.css'))
             ->prependStylesheet($this->basePath('css/charts.css'))
+            ->prependStylesheet($this->basePath('css/autocomplete.css'))
         ?>
 
         <!-- Scripts -->
@@ -24,6 +25,7 @@
             ->prependFile($this->basePath('js/jquery-3.3.1.min.js'))
             ->prependFile($this->basePath('js/menu.js'))
             ->prependFile($this->basePath('js/charts.js'))
+            ->prependFile($this->basePath('js/autocomplete.js'))
         ?>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -92,7 +94,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="<?=$this->url('tickets', ['action' => 'input'])?>">
                             <span class="fa-stack fa-lg pull-left">
                                 <i class="fa fa-wrench fa-stack-1x"></i>
                             </span>Configurações

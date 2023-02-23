@@ -100,5 +100,36 @@ class TicketsController extends AbstractActionController {
     public function manuaisAction() {
         return new ViewModel();
     }
+
+    public function inputAction() {
+        return new ViewModel();
+    }
+
+    public function visualizarAction() {
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if (0 === $id) {
+            return $this->redirect()->toRoute('tickets', ['action' => 'adicionar']);
+        }
+        try {
+            $pessoa = $this->table->getPessoa($id);
+        } catch (Exception $exc) {
+            return $this->redirect()->toRoute('tickets', ['action' => 'index']);
+        }
+        $form = new TicketsForm();
+        $form->bind($pessoa);
+        $form->get('submit')->setAttribute('value', 'Salvar');
+        $request = $this->getRequest();
+        $viewData = ['id' => $id, 'form' => $form];
+        if (!$request->isPost()) {
+            return $viewData;
+        }
+        $form->setData($request->getPost());
+        if (!$form->isValid()) {
+            return $viewData;
+        }
+        //$pessoa->exchangeArray($form->getData());
+        $this->table->salvarPessoa($form->getData());
+        return $this->redirect()->toRoute('tickets');
+    }
 }
 ?>

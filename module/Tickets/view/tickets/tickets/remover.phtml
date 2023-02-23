@@ -2,14 +2,31 @@
 $title = "Remover Ticket";
 $this->headTitle($title);
 ?>
-<h1><?=$this->escapeHtml($title)?></h1>
-<p>
-    Você deseja realmente excluir "<?=$this->escapeHtml($tickets->getName())?>"?
-</p>
-<form method="post" action="<?=$this->url('tickets',['action'=>'remover','id'=>$id])?>">
-    <div class="form-group">
-        <input type="hidden" name="id" value="<?=$id?>">
-        <input type="submit" class="btn btn-danger" name="del" value="Sim">
-        <input type="submit" class="btn btn-success" name="del" value="Não">
+
+<h1 class="mb-4 nt"><?=$title?></h1>
+
+<?php  ?>
+
+<section class="sec_remover">
+    <div class="p-5">
+        <center>
+            <h2>
+                Você deseja realmente excluir "<?=$this->escapeHtml($tickets->getName())?>"?
+            </h2>
+            <form method="post" action="<?=$this->url('tickets',['action'=>'remover','id'=>$id])?>">
+                <div class="form-group">
+                    <input type="hidden" name="id" value="<?=$id?>">
+                    <input type="submit" class="btn btn-danger" name="del" value="Sim">
+                    <input type="submit" class="btn btn-primary-new text-white" name="del" value="Não">
+                </div>
+            </form>
+        </center>
     </div>
-</form>
+</section>
+
+<style type="text/css">
+.sec_remover {
+    display: grid;
+    place-items: center;
+}
+</style>

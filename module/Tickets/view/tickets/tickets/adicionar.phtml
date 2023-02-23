@@ -14,22 +14,30 @@
 	$description = $this->form->get('description');
 	$priority = $this->form->get('priority');
 	$sector = $this->form->get('sector');
+	$myCountry = $this->form->get('myCountry');
 
+	$name->setAttribute('id', 'myInput');
 	$name->setAttribute('class', 'form-control');
 	$name->setAttribute('autofocus', 'autofocus');
 	$description->setAttribute('class', 'form-control');
 	$priority->setAttribute('class', 'form-control');
 	$sector->setAttribute('class', 'form-control');
 
+
+	$sector->setAttribute('value', 'Suporte TI');
+	$priority->setAttribute('value', 'Alta');
+
 	$submit = $this->form->get('submit');
-	$submit->setAttribute('class', 'btn btn-primary-new');
+	$submit->setAttribute('class', 'btn btn-primary-new text-white');
 ?>
 <?=$this->formElement($id)?>
 <div class="form-group">
 	<div class="col-md-6 mt-5 mb-5">
-		<?=$this->formLabel($name)?>
-		<?=$this->formElement($name)?>
-		<?=$this->formElementErrors()->render($name, ['class' => 'help-block'])?>
+		<div class="autocomplete">
+			<?=$this->formLabel($name)?>
+			<?=$this->formElement($name)?>
+			<?=$this->formElementErrors()->render($name, ['class' => 'help-block'])?>
+		</div>
 	</div>
 	<div class="col-md-6 mt-5 mb-5">
 		<?=$this->formLabel($description)?>
@@ -46,7 +54,6 @@
 		<?=$this->formElement($sector)?>
 		<?=$this->formElementErrors()->render($sector, ['class' => 'help-block'])?>
 	</div>
-
 	<div class="col-md-6 p-3">
 		<a href="<?=$this->url('tickets', ['action' => 'index'])?>" class="btn btn-primary-new">
 			<i class="fa fa-arrow-left" aria-hidden="true"></i>

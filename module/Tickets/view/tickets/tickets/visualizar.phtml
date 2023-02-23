@@ -1,5 +1,5 @@
 <?php
-$title = "Editando Ticket";
+$title = "Visualizando Ticket";
 $this->headTitle($title);
 ?>
 <h1>
@@ -17,14 +17,19 @@ $this->headTitle($title);
     $priority = $this->form->get('priority');
     $sector = $this->form->get('sector');
 
-    $name->setAttribute('id', 'myInput');
+    $name->setAttribute('readonly', 'readonly');
+    $description->setAttribute('readonly', 'readonly');
+    $priority->setAttribute('readonly', 'readonly');
+    $sector->setAttribute('readonly', 'readonly');
+
     $name->setAttribute('class','form-control');
     $description->setAttribute('class','form-control');
     $priority->setAttribute('class','form-control');
     $sector->setAttribute('class','form-control');
 
     $submit = $this->form->get('submit');
-    $submit->setAttribute('class','btn btn-primary-new text-white');
+    $submit->setAttribute('value','Editar');
+    $submit->setAttribute('class','btn btn-primary-new');
 ?>
 <?=$this->formElement($id)?>
 <div class="form-group">
@@ -53,9 +58,7 @@ $this->headTitle($title);
 </div>
 <div class="form-group">
     <div class="col-md-6 p-3">
-        <a href="<?=$this->url('tickets', ['action' => 'index'])?>" class="btn btn-primary-new text-white text-white">
+        <a href="<?=$this->url('tickets', ['action' => 'index'])?>" class="btn btn-primary-new">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
         </a>
-        <?=$this->formElement($submit)?>
-    </div>
 </div>
