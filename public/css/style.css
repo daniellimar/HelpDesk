@@ -8,6 +8,15 @@ body {
    padding-bottom: 40px;
 }
 
+.bg-primary-new {
+   color: white;
+   background-color: var(--bg-primary);
+   border: none;
+}
+.bg-primary-new h6,span{
+   color: white;
+}
+
 .btn-primary-new {
    color: white;
    background-color: var(--bg-primary);

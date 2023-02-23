@@ -101,7 +101,7 @@ class TicketsController extends AbstractActionController {
         return new ViewModel();
     }
 
-    public function inputAction() {
+    public function configuracoesAction() {
         return new ViewModel();
     }
 
