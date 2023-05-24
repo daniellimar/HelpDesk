@@ -1,6 +1,6 @@
 # HelpDesk
 
-> Gereciamento de Chamados - TI
+> Gerenciamento de Chamados - TI
 
 <img src="Telas/1.png">
 <img src="Telas/2.png">
